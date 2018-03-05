@@ -1,5 +1,6 @@
+console.log("yeah");
  queue()
-            .defer(d3.json, "data/quests.json")
+            .defer(d3.json, "/data")
             .await(makeGraphs);
             
             function makeGraphs(error, questData) {
