@@ -19,7 +19,7 @@ function start_location(ndx) {
       let count_starting_locations = start_dim.group().reduceCount();
       
       dc.rowChart("#start-location")
-        .width(600)
+        .width(500)
         .height(400)
         .dimension(start_dim)
         .group(count_starting_locations)
@@ -31,7 +31,7 @@ function end_location(ndx) {
       let count_ending_locations = end_dim.group().reduceCount();
       
       dc.rowChart("#end-location")
-        .width(600)
+        .width(500)
         .height(400)
         .dimension(end_dim)
         .group(count_ending_locations)
