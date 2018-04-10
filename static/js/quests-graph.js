@@ -10,7 +10,6 @@ console.log("yeah");
                end_location(ndx);
                show_stacked_degree(ndx);
                get_type_of_quest(ndx);
-            //   same_location(ndx);
                
                
                  dc.renderAll();
@@ -55,7 +54,7 @@ function show_stacked_degree(ndx){
         
     
      dc.barChart("#difficulty_per_location")
-        .width(500)
+        .width(600)
         .height(400)
         .dimension(location_dim)
         .legend(dc.legend().x(0).y(50).itemHeight(10).gap(1))
@@ -106,21 +105,16 @@ function get_type_of_quest (ndx) {
         var total_spend_per_person = name_dim.group().reduceCount(dc.pluck('category'));
         dc.pieChart('#type_of_quest')
             .height(500)
-            .radius(135)
+            .radius(150)
             .transitionDuration(1500)
-            .legend(dc.legend().x(0).y(0).itemHeight(10).gap(1))
+            .legend(dc.legend().x(0).y(0).itemHeight(15).gap(1))
             .dimension(name_dim)
             .group(total_spend_per_person);
 }
-// function same_location (ndx) {
-//     var name_dim = ndx.dimension(dc.pluck('startL' == 'endL'));
-//         var total_spend_per_person = name_dim.group().reduceCount();
-//         dc.pieChart('#same')
-//             .height(500)
-//             .radius(135)
-//             .transitionDuration(1500)
-//             .legend(dc.legend().x(0).y(0).itemHeight(10).gap(1))
-//             .dimension(name_dim)
-//             .group(total_spend_per_person);
-// }
+function get_same_start_and_end_location (ndx) {
+    
+}
+
+
+
 

@@ -22,69 +22,64 @@ body {
     background-image: url(static/css/img/quest-background.png);
     background-size: cover;
 }
+h1, h2 {
+    text-align: center;
+    background: rgba(128,128,128, .7);
+    padding: 15px;
+    border-radius: 40%;
+}
 </style>
 </head>
 <body>
-    <div id = 'container'>
         <div class = 'row'>
-            <div class = 'col-lg-6 col-lg-offset-3'>
+            <div class = 'col-md-6 col-md-offset-3'>
                 <h1>Quests from Dragon Age: Inquisition</h1>
             </div>
         </div>
-        <div class = 'row'>
-            <div class = 'col-lg-5 col-lg-offset-2'>
-                <h3>Quest Starting Location</h3>
-            </div>
-            <div class = 'col-lg-5'>
-                <h3>Quest Ending Location</h3>
-            </div>
-        </div>
-
                 <div class = 'row'>
-                    <div class = 'col-lg-5 col-lg-offset-1'>
+                    <div class = 'col-md-4'>
+                        <h2>Quest Starting Location</h2><br />
                         <div id = 'start-location'></div>
                     </div>
-                    <div class = 'col-lg-5'>
+                    <div class = 'col-md-4'>
+                        <h2>Difficulty Level by Starting Location</h2><br />
+                        <div id = 'difficulty_per_location'></div>
+                    </div>
+                    <div class = 'col-md-4'>
+                        <h2>Quest Ending Location</h2><br />
                         <div id = 'end-location'></div>
                     </div>
                 </div>
+                <hr>
                 <div class = 'row'>
-                    <div class = 'col-lg-5 col-lg-offset-4'>
-                        <h3>Difficulty Level by Starting Location</h3>
+                    <div class="col-md-5">
+                    </div>
+                    <div class = 'col-md-3'>
+                        <h2>Categories</h2>
                     </div>
                 </div>
                 <div class = 'row'>
-                    <div class = 'col-lg-4'>
-                        <img src="static/css/img/locations1.png" height='400' width='400'></img>
+                    <div class="col-md-5">
                     </div>
-                    <div class = 'col-lg-4'>
-                        <div id = 'difficulty_per_location'></div>
-                    </div>
-                    <div class = 'col-lg-4'>
-                        <img src="static/css/img/locations2.png" height='400' width='400'></img>
+                    <div class = 'col-md-6'>
+                        <div id = 'type_of_quest'></div>
                     </div>
                 </div>
-                <div class = 'row'>
-                    <div class = 'col-lg-2 col-lg-offset-5'>
-                        <h3>Categories</h3>
+                <hr>
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="static/css/img/locations1.png" alt="location1"></img>
+                    </div>
+                    <div class="col-md-3">
+                        <img src="static/css/img/locations2.png" alt="location2"></img>
+                    </div>
+                    <div class="col-md-3">
+                        <img src="static/css/img/locations3.png" alt="location3"></img>
+                    </div>
+                    <div class="col-md-3">
+                        <img src="static/css/img/locations4.png" alt="location4"></img>
                     </div>
                 </div>
-                <div class = 'row'>
-                    <div class = 'col-lg-4'>
-                        <img src="static/css/img/locations3.png" height='400' width='400'></img>
-                    </div>
-                     <div class = 'col-lg-4'>
-                         <div id = 'type_of_quest'></div>
-                    </div>
-                    <div class = 'col-lg-4'>
-                        <img src="static/css/img/locations4.png" height='400' width='400'></img>
-                    </div>
-                </div>
-                <!-- <div class = 'row'>-->
-                <!--    <div class = 'col-lg-4 col-lg-offset-4'>-->
-                <!--        <div id = 'same'></div>-->
-                <!--    </div>-->
-                <!--</div>-->
-    </div>
+                
 </body>
 </html>
