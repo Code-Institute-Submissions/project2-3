@@ -1,5 +1,9 @@
 # project2
 # Dragon Age Data Visualization
+
+## Data
+
+All quest data (432 entries with 5 categories each) used to create the graphs were typed up by me for this specific project the weekend before project week began. 
  
 ## Overview
  
@@ -58,3 +62,4 @@ All game info and names credited to its developers (**BioWare**) and publishers 
 
 ## Planning
 All wireframes and planning documents can be found in the stream2Project folder here in the repository. Unable to find a map file for the game.
+
