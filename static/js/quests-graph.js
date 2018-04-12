@@ -54,18 +54,18 @@ function show_stacked_degree(ndx){
         
     
      dc.barChart("#difficulty_per_location")
-        .width(600)
-        .height(400)
+        .width(800)
+        .height(500)
         .dimension(location_dim)
         .legend(dc.legend().x(0).y(50).itemHeight(10).gap(1))
-        .margins({top: 70, right: 50, bottom: 10, left: 50})
+        .margins({top: 70, right: 50, bottom: 70, left: 50})
         .valueAccessor(function (d) { return d.value.percent})
         .group(level_1_difficulty, '1')
         .stack(level_2_difficulty, '2')
         .stack(level_3_difficulty, '3')
         .stack(level_4_difficulty, '4')
         .stack(level_5_difficulty, '5')
-        .transitionDuration(500)
+        .transitionDuration(200)
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
         .yAxis().ticks(10);
