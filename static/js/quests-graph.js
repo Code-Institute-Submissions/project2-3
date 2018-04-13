@@ -53,7 +53,7 @@ function show_stacked_degree(ndx){
     let level_5_difficulty = get_number_of_difficulties_per_location(ndx, '5'); 
         
     let colors = d3.scale.ordinal()
-        .range(["#2734f4","#069914","#f4c413","#bc0909","purple"]);   
+        .range(["#2734f4","#069914","#ff9900","#bc0909","#a502d3"]);   
     
      dc.barChart("#difficulty_per_location")
         .width(950)
