@@ -10,6 +10,7 @@ console.log("yeah");
                end_location(ndx);
                show_stacked_degree(ndx);
                get_type_of_quest(ndx);
+               get_whether_same_or_different_locations(ndx);
                
                
                  dc.renderAll();
@@ -20,7 +21,7 @@ function start_location(ndx) {
       
       dc.rowChart("#start-location")
         .width(500)
-        .height(400)
+        .height(530)
         .dimension(start_dim)
         .group(count_starting_locations)
         .xAxis()
@@ -32,7 +33,7 @@ function end_location(ndx) {
       
       dc.rowChart("#end-location")
         .width(500)
-        .height(400)
+        .height(530)
         .dimension(end_dim)
         .group(count_ending_locations)
         .xAxis()
@@ -51,20 +52,22 @@ function show_stacked_degree(ndx){
     
     let level_5_difficulty = get_number_of_difficulties_per_location(ndx, '5'); 
         
-        
+    let colors = d3.scale.ordinal()
+        .range(["#2734f4","#069914","#f4c413","#bc0909","purple"]);   
     
      dc.barChart("#difficulty_per_location")
-        .width(800)
+        .width(950)
         .height(500)
         .dimension(location_dim)
         .legend(dc.legend().x(0).y(50).itemHeight(10).gap(1))
-        .margins({top: 70, right: 50, bottom: 70, left: 50})
+        .margins({top: 50, right: 75, bottom: 100, left: 75})
         .valueAccessor(function (d) { return d.value.percent})
         .group(level_1_difficulty, '1')
         .stack(level_2_difficulty, '2')
         .stack(level_3_difficulty, '3')
         .stack(level_4_difficulty, '4')
         .stack(level_5_difficulty, '5')
+        .colors(colors)
         .transitionDuration(200)
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
@@ -101,6 +104,8 @@ function get_number_of_difficulties_per_location(ndx, difficulty) {
         }); 
 }
 function get_type_of_quest (ndx) {
+    var colors = d3.scale.ordinal()
+        .range(["#0000FF", "#0033FF", "#0066FF", "#0099FF", "#00CCFF", "#00FFFF", "#e01111"]);
     var name_dim = ndx.dimension(dc.pluck('category'));
         var total_spend_per_person = name_dim.group().reduceCount(dc.pluck('category'));
         dc.pieChart('#type_of_quest')
@@ -109,11 +114,35 @@ function get_type_of_quest (ndx) {
             .transitionDuration(1500)
             .legend(dc.legend().x(0).y(0).itemHeight(15).gap(1))
             .dimension(name_dim)
-            .group(total_spend_per_person);
+            .group(total_spend_per_person)
+            .colors(colors);
 }
-function get_same_start_and_end_location (ndx) {
+function get_whether_same_or_different_locations (ndx) {
+  
+    var colors = d3.scale.ordinal()
+        .range(["green", "black"]); 
+    var location_dim = ndx.dimension(function(d){
+        if (d['startL'] === d['endL']) {
+                return "Same";
+            } else {
+                return "Different";
+            } 
+    });
     
+    var location_group = location_dim.group().reduceCount();
+       
+    dc.pieChart('#location_same_or_different')
+        .height(500)
+        .radius(150)
+        .transitionDuration(1500)
+        .legend(dc.legend().x(0).y(0).itemHeight(15).gap(1))
+        .dimension(location_dim)
+        .group(location_group)
+        .colors(colors);
+        
 }
+
+
 
 
 

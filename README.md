@@ -36,8 +36,10 @@ This site uses simple HTML and CSS. The site is also styled with **Bootstrap**. 
 ## Tech Used
 
 ### Some the tech used includes:
-- **HTML**, **CSS** and **Javascript**
+- **HTML** and **CSS**
   - Base languages used to create website
+- **Javascript** and **DC/D3**
+    - Used to create graphs
 - [Bootstrap](http://getbootstrap.com/)
     - We use **Bootstrap** to give our project a simple, responsive layout
 - [JQuery](https://jquery.com)

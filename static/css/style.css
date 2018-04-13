@@ -6,23 +6,24 @@ img {
 
 #difficulty_per_location .x.axis text {
     transform: rotate(-45deg) translate(-50px);
-   
 }
 
 #start-location, #end-location {
-    background-color: grey;
     margin-top: 10px;
+    width: 100%;
+    background-color: #bca26f;
 }
+
 
 #difficulty_per_location {
-    background-color: grey;
-    padding: 10px;
+    background-color: #bca26f;
 }
 
-#type_of_quest {
-    background-color: grey;
-    padding: 30px;
-    margin-left: auto;
-    margin-right: auto;
+#type_of_quest, #location_same_or_different {
+    padding: 15px;
+    margin-top: 10px;
+    width: 100%;
+    background-color: #bca26f;
 }
+
 
