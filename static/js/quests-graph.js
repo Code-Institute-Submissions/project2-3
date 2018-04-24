@@ -4,7 +4,7 @@ console.log("yeah");
             .await(makeGraphs);
             
             function makeGraphs(error, questData) {
-               let ndx = crossfilter(questData);
+               var ndx = crossfilter(questData);
                
                start_location(ndx);
                end_location(ndx);
@@ -16,8 +16,8 @@ console.log("yeah");
                  dc.renderAll();
             }
 function start_location(ndx) {
-      let start_dim = ndx.dimension(dc.pluck('startL'));
-      let count_starting_locations = start_dim.group().reduceCount();
+      var start_dim = ndx.dimension(dc.pluck('startL'));
+      var count_starting_locations = start_dim.group().reduceCount();
       
       dc.rowChart("#start-location")
         .width(500)
@@ -28,8 +28,8 @@ function start_location(ndx) {
         .ticks(4);
    }
 function end_location(ndx) {
-      let end_dim = ndx.dimension(dc.pluck('endL'));
-      let count_ending_locations = end_dim.group().reduceCount();
+      var end_dim = ndx.dimension(dc.pluck('endL'));
+      var count_ending_locations = end_dim.group().reduceCount();
       
       dc.rowChart("#end-location")
         .width(500)
@@ -40,19 +40,19 @@ function end_location(ndx) {
         .ticks(4);
    }
 function show_stacked_degree(ndx){
-    let location_dim = ndx.dimension(dc.pluck('startL'));
+    var location_dim = ndx.dimension(dc.pluck('startL'));
     
-    let level_1_difficulty = get_number_of_difficulties_per_location(ndx, '1'); 
+    var level_1_difficulty = get_number_of_difficulties_per_location(ndx, '1'); 
         
-    let level_2_difficulty = get_number_of_difficulties_per_location(ndx, '2'); 
+    var level_2_difficulty = get_number_of_difficulties_per_location(ndx, '2'); 
     
-    let level_3_difficulty = get_number_of_difficulties_per_location(ndx, '3'); 
+    var level_3_difficulty = get_number_of_difficulties_per_location(ndx, '3'); 
     
-    let level_4_difficulty = get_number_of_difficulties_per_location(ndx, '4'); 
+    var level_4_difficulty = get_number_of_difficulties_per_location(ndx, '4'); 
     
-    let level_5_difficulty = get_number_of_difficulties_per_location(ndx, '5'); 
+    var level_5_difficulty = get_number_of_difficulties_per_location(ndx, '5'); 
         
-    let colors = d3.scale.ordinal()
+    var colors = d3.scale.ordinal()
         .range(["#2734f4","#069914","#ff9900","#bc0909","#a502d3"]);   
     
      dc.barChart("#difficulty_per_location")
@@ -61,7 +61,6 @@ function show_stacked_degree(ndx){
         .dimension(location_dim)
         .legend(dc.legend().x(0).y(50).itemHeight(10).gap(1))
         .margins({top: 50, right: 75, bottom: 100, left: 75})
-        .valueAccessor(function (d) { return d.value.percent})
         .group(level_1_difficulty, '1')
         .stack(level_2_difficulty, '2')
         .stack(level_3_difficulty, '3')
@@ -71,12 +70,13 @@ function show_stacked_degree(ndx){
         .transitionDuration(200)
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
-        .yAxis().ticks(10);
+        .yAxis().ticks(10)
+     		.valueAccessor(function (d) { return d.value.percent;});
         
         
 }
 function get_number_of_difficulties_per_location(ndx, difficulty) {
-    let gender_dim = ndx.dimension(dc.pluck('startL'));
+    var gender_dim = ndx.dimension(dc.pluck('startL'));
     return gender_dim.group().reduce(
         function (p, v) {
                 p.total += 1;
@@ -122,7 +122,7 @@ function get_whether_same_or_different_locations (ndx) {
     var colors = d3.scale.ordinal()
         .range(["green", "black"]); 
     var location_dim = ndx.dimension(function(d){
-        if (d['startL'] === d['endL']) {
+        if (d.startL === d.endL) {
                 return "Same";
             } else {
                 return "Different";
