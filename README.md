@@ -1,5 +1,4 @@
-# project2
-# Dragon Age Data Visualization
+# Project2: Dragon Age Data Visualization
 
 ## Data
 

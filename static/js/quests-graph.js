@@ -61,6 +61,7 @@ function show_stacked_degree(ndx){
         .dimension(location_dim)
         .legend(dc.legend().x(0).y(50).itemHeight(10).gap(1))
         .margins({top: 50, right: 75, bottom: 100, left: 75})
+        .valueAccessor(function (d) { return d.value.percent;})
         .group(level_1_difficulty, '1')
         .stack(level_2_difficulty, '2')
         .stack(level_3_difficulty, '3')
@@ -70,8 +71,7 @@ function show_stacked_degree(ndx){
         .transitionDuration(200)
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
-        .yAxis().ticks(10)
-     		.valueAccessor(function (d) { return d.value.percent;});
+        .yAxis().ticks(10);
         
         
 }
